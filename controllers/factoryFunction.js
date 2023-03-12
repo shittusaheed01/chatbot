@@ -27,7 +27,7 @@ exports.loadMessage = async (io, sessionID) => {
 exports.welcomeMessage = (io, sessionID) => {
 	io.to(sessionID).emit(
 		"bot message",
-		formatMessage(config.botName, "Welcome to Saheed's ChatBot!")
+		formatMessage(config.botName, "Welcome to Saheed's ChatBot! 🤖 <br> Say hello to the bot")
 	);
 };
 
