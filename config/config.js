@@ -8,6 +8,8 @@ const config = {
 	local_db: process.env.local_db,
 	db_name: process.env.db_name,
 	sessionMaxAge: process.env.sessionMaxAge,
+	domain: process.env.domain,
+	hostDomain: process.env.hostDomain,
 };
 
 const cors = {

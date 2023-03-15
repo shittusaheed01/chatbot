@@ -1,15 +1,19 @@
 const session = require("express-session");
+const MongoStore = require('connect-mongo');
 
 const { config } = require("./config");
 
 
-const maxAge = parseInt(config.sessionMaxAge)
-
 const sessionMiddleware = session({
 	secret: config.sessionSecret,
 	resave: false, 
+	domain:config.hostDomain,
 	saveUninitialized: true,
-	cookie: { secure: false, maxAge },
+	store: MongoStore.create({
+    mongoUrl: config.mongoURI,
+    autoRemove: 'native' // Default
+  }),
+	cookie: { secure: false, maxAge: +config.sessionMaxAge },
 });
 
 module.exports = sessionMiddleware;
