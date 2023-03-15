@@ -27,6 +27,6 @@ const SessionSchema = new Schema(
         ]
     },
     { timestamps: true }
-);
+); 
 
-module.exports = mongoose.model('Session', SessionSchema);
+module.exports = mongoose.model('SessionOrders', SessionSchema);

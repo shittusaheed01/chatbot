@@ -5,7 +5,8 @@ const { config } = require("./config");
 
 const store = new MongoStore({
 	uri: config.local_db,
-	collection: 'sessions',
+	databaseName: config.db_name,
+	collection: 'session',
 
 });
 store.on('error', function(error) {
@@ -17,7 +18,7 @@ const sessionMiddleware = session({
 	resave: false, 
 	saveUninitialized: true,
 	store: store,
-	cookie: { secure: false,domain:config.domain, maxAge: +config.sessionMaxAge },
+	cookie: { secure: false, maxAge: +config.sessionMaxAge },
 });
 
 module.exports = sessionMiddleware;
