@@ -41,11 +41,11 @@ io.on("connection", async (socket) => {
 	// get the session
 	const session = socket.request.session;
 	const sessionId = session.id;
-	console.log(sessionId);  
+	// console.log(sessionId);  
 	saveSessionID(sessionId);
 	//connect users with the same session id
 	socket.join(sessionId);
-	//welcome users to chat bot
+	//welcome users to chat bot 
 	welcomeMessage(io, sessionId);
 	loadMessage(io, sessionId);
 
