@@ -4,7 +4,7 @@ const { config } = require("../config/config");
 function connectMongo(server) {
 	mongoose.set("strictQuery", false);
 	mongoose
-		.connect(config.mongoURI, {
+		.connect(config.local_db, {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 			dbName: config.db_name,
