@@ -6,7 +6,7 @@ const cors = require('cors')
 
 const sessionMiddleware = require("./config/sessionMiddleware");
 
-// app.use(cors())
+app.use(cors())
 
 app.use(express.static(path.join(__dirname, "public")));
 
