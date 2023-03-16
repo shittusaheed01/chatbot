@@ -21,7 +21,6 @@ const sessionMiddleware = session({
 		maxAge: +config.sessionMaxAge,
 		httpOnly: true,
 		secure: true,
-		domain: "chatbot-zznn.onrender.com",
     path: '/',
     sameSite: 'strict',
     proxy: true // set proxy in cookies
