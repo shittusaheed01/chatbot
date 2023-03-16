@@ -14,15 +14,12 @@ store.on("error", function (error) {
 
 const sessionMiddleware = session({
 	secret: config.sessionSecret,
-	resave: true,
+	resave: false,
 	saveUninitialized: true,
-	store: store,
-	cookie: {
-		secure: true,
-		maxAge: +config.sessionMaxAge,
-		domain: ".chatbot-zznn.onrender.com",
-		httpOnly: true,
+	store,
+	cookie: {		maxAge: +config.sessionMaxAge,		httpOnly: true,	
 	},
 });
+
 
 module.exports = sessionMiddleware;

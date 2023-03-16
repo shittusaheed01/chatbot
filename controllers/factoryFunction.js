@@ -145,6 +145,8 @@ exports.saveOrder = async (io, sessionID, number) => {
 
 	let botMessage = "";
 
+	if(!sessionOrder) return botMessage = formatMessage(config.botName, "You have not started a session yet");
+
 	if (number === 1) {
 		sessionOrder.currentOrder.push(foodMenu[0]);
 	}

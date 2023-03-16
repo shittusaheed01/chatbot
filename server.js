@@ -23,16 +23,18 @@ const { config } = require("./config/config");
 const MessageModel = require("./model/messageModel");
 
 const server = http.createServer(app);
-const io = new Server(server);
 
-/*, {
+const io = new Server(server, {
 	cors: {
 		origin: "*",
 		methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 		preflightContinue: false,
 		optionsSuccessStatus: 204,
 	},
-} */
+});
+
+
+
 
 io.engine.use(sessionMiddleware);
 
@@ -42,6 +44,7 @@ const levels = {};
 io.on("connection", async (socket) => {
 	// get the session
 	const session = socket.request.session;
+	// console.log(session)
 	const sessionId = session.id;
 	console.log(sessionId);  
 	saveSessionID(sessionId);

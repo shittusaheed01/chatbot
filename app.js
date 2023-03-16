@@ -8,8 +8,8 @@ const sessionMiddleware = require("./config/sessionMiddleware");
 
 app.use(cors())
 
-app.use(express.static(path.join(__dirname, "public")));
-
 app.use(sessionMiddleware);
+
+app.use(express.static(path.join(__dirname, "public")));
 
 module.exports = app;
