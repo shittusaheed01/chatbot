@@ -24,14 +24,18 @@ const MessageModel = require("./model/messageModel");
 
 const server = http.createServer(app);
 
-const io = new Server(server, {
+const io = new Server(server);
+
+/*
+  , {
 	cors: {
 		origin: "*",
 		methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 		preflightContinue: false,
 		optionsSuccessStatus: 204,
 	},
-});
+}
+ */
 
 
 
@@ -46,7 +50,7 @@ io.on("connection", async (socket) => {
 	const session = socket.request.session;
 	// console.log(session)
 	const sessionId = session.id;
-	// console.log(sessionId);  
+	console.log(sessionId);  
 	saveSessionID(sessionId);
 	//connect users with the same session id
 	socket.join(sessionId);
