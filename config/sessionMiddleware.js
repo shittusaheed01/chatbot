@@ -15,7 +15,7 @@ store.on("error", function (error) {
 const sessionMiddleware = session({
 	secret: config.sessionSecret,
 	resave: false,
-	saveUninitialized: false,
+	saveUninitialized: true,
 	store,
 	cookie: {		
 		maxAge: +config.sessionMaxAge,
