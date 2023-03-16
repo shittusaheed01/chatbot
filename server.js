@@ -23,14 +23,16 @@ const { config } = require("./config/config");
 const MessageModel = require("./model/messageModel");
 
 const server = http.createServer(app);
-const io = new Server(server, {
+const io = new Server(server);
+
+/*, {
 	cors: {
 		origin: "*",
 		methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 		preflightContinue: false,
 		optionsSuccessStatus: 204,
 	},
-});
+} */
 
 io.engine.use(sessionMiddleware);
 
