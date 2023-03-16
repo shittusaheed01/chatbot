@@ -15,12 +15,12 @@ store.on("error", function (error) {
 const sessionMiddleware = session({
 	secret: config.sessionSecret,
 	resave: false,
-	saveUninitialized: false,
+	saveUninitialized: true,
 	store,
 	cookie: {		
 		maxAge: +config.sessionMaxAge,
 		httpOnly: true,
-		secure: true,
+		secure: false,
     path: '/',
     sameSite: 'strict',
     proxy: true // set proxy in cookies
