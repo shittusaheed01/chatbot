@@ -12,6 +12,7 @@ store.on("error", function (error) {
 	console.log(error);
 });
 
+
 const sessionMiddleware = session({
 	secret: config.sessionSecret,
 	resave: false,
@@ -19,6 +20,7 @@ const sessionMiddleware = session({
 	store,
 	cookie: {		
 		maxAge: +config.sessionMaxAge,
+		domain:"chatbot-zznn.onrender.com",
 		httpOnly: true,
 		secure: false,
     path: '/',
